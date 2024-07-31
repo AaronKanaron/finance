@@ -8,8 +8,21 @@ from sklearn.impute import SimpleImputer
 from sklearn.model_selection import cross_val_score
 from sklearn.ensemble import GradientBoostingRegressor
 
-ticker = yf.Ticker("AAPL")
-net_income = 96995000
+ticker = yf.Ticker("BETS-B.ST")
+
+def get_financial_data(income_stmt, field):
+    try:
+        data = income_stmt.loc[field].dropna().values.tolist()
+        return data if data else [0]  # Return [0] if the list is empty
+    except KeyError:
+        # If the field doesn't exist in the income statement
+        return [0]
+    except Exception as e:
+        print(f"Error retrieving {field}: {str(e)}")
+        return [0]
+    
+net_income = get_financial_data(ticker.income_stmt, "Net Income")[0]
+
 
 df = ticker.history(period="6mo", interval="1h", actions=True)
 df.to_csv("ticker_history.csv")
@@ -102,14 +115,14 @@ print(f"Expected PE based on model: {expected_PE:.2f}")
 
 if actual_PE > 0 and expected_PE > 0:
     performance_ratio = actual_PE / expected_PE
-    print(f"Performance ratio: {performance_ratio:.2f}")
+    print(f"Performance ratio: {performance_ratio:.5f}")
 
     if performance_ratio > 1:
-        print("The stock is trading above expected levels based on its financials.")
+        print("The stock is trading above expected levels based on its financials. (Sell)")
     elif performance_ratio < 1:
-        print("The stock is trading below expected levels based on its financials.")
+        print("The stock is trading below expected levels based on its financials. (Buy)")
     else:
-        print("The stock is trading at expected levels based on its financials.")
+        print("The stock is trading at expected levels based on its financials. (Hold)")
 else:
     print("Unable to calculate performance ratio due to zero or negative PE values.")
 
