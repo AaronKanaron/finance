@@ -1,0 +1,14 @@
+[
+    {
+        "ticker": "TSLA",
+        "currency": "USD",
+        "industry": "auto-manufacturers",
+        "metrics": {
+            "p_e": 62.533707,
+            "own_p_e": 49.421668034402295,
+            "current_price": 222.62,
+            "revenue_growth": 0.4531681342167806,
+            "earnings_growth": 0.7462993251660555
+        }
+    }
+]
