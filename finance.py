@@ -42,10 +42,13 @@ def collect_metrics(symbol):
 
     # Earning Growth
     earnings = get_financial_data(income_stmt, "EBIT")
+    if earnings == 0: earnings = get_financial_data(income_stmt, "Net Income")
     earnings_growth = calculate_growth(earnings)
+    if earnings_growth == 0: return
 
-    
-
+    ttm_net_income_arr = get_financial_data(ticker.quarterly_income_stmt, "Net Income")
+    ttm_net_income = sum(ttm_net_income_arr[:4])
+    # print(ttm_net_income)
     #ROIC
     net_income = get_financial_data(income_stmt, "Net Income")[0]
     total_debt = get_financial_data(balance_sheet, "Total Debt")[0]
@@ -91,61 +94,51 @@ def collect_metrics(symbol):
         ("tax_expenses", tax_expenses)
     ]
 
-    print("\n" + "=" * terminal_width)
-    print("Financial Variables Debug Output".center(terminal_width))
-    print("=" * terminal_width)
+    # print("\n" + "=" * terminal_width)
+    # print("Financial Variables Debug Output".center(terminal_width))
+    # print("=" * terminal_width)
 
-    for name, value in variables:
-        print(f"| {name:<28} | {value:>45} |")
-        print("-" * terminal_width)
+    # for name, value in variables:
+    #     print(f"| {name:<28} | {value:>45} |")
+    #     print("-" * terminal_width)
 
-    print("=" * terminal_width + "\n")
+    # print("=" * terminal_width + "\n")
 
 
 
-    print(f"After tax operating income: {after_tax_operating_income}, invested capital: {invested_capital}")
-    print(f"ROIC: {after_tax_operating_income*(1-tax_rate)/invested_capital*100:2f}%")
-    print(f"ROIC other: {operating_income*(1 - tax_rate) / invested_capital*100:2f}%      | Absolut fel")
-    print(f"ROIC Alvin: {roic*100:2f}%")
-    print(f"ROIC #4: {ebit*(1-tax_rate)/invested_capital_yf*100:2f}%")
-    print(f"ROIC #5 (scuff): {ebit_calc*(1-tax_rate)/invested_capital_yf*100:2f}%")
+    # print(f"After tax operating income: {after_tax_operating_income}, invested capital: {invested_capital}")
+    # print(f"ROIC: {after_tax_operating_income*(1-tax_rate)/invested_capital*100:2f}%")
+    # print(f"ROIC other: {operating_income*(1 - tax_rate) / invested_capital*100:2f}%      | Absolut fel")
+    # print(f"ROIC Alvin: {roic*100:2f}%")
+    # print(f"ROIC #4: {ebit*(1-tax_rate)/invested_capital_yf*100:2f}%")
+    # print(f"ROIC #5 (scuff): {ebit_calc*(1-tax_rate)/invested_capital_yf*100:2f}%")
 
 
     #P/E
-    trailingPE = info["marketCap"] / net_income
-    yfPE = info["trailingPE"]
+    
+    if "marketCap" in info and ttm_net_income != 0:
+        trailingPE = info["marketCap"] / ttm_net_income
+    elif "marketCap" in info:
+        trailingPE = info["marketCap"]
+    else:
+        trailingPE = None  # or any default value you prefer
+    # yfPE = info["trailingPE"]
 
-    features = np.array([
-        net_income, total_debt, cash, equity, roic, stockholder_equity, goodwill,
-        operating_income, interest_expenses, tax_rate, non_operating_income,
-        after_tax_operating_income, invested_capital_yf, ebit
-    ]).reshape(1, -1)
-
-    scaler = StandardScaler()
-    normalized_features = scaler.fit_transform(features)
-
-
-    # Train a simple model (you'd typically do this with historical data)
-    # For demonstration, we'll create a dummy model
-    model = RandomForestRegressor(n_estimators=100, random_state=42)
-    dummy_y = np.array([yfPE])  # In reality, you'd use historical PE values
-    model.fit(normalized_features, dummy_y)
-
-    expected_PE = model.predict(normalized_features)[0]
+    # expected_PE = model.predict(normalized_features)[0]
 
     # Compare actual trailingPE with expected PE
-    performance_ratio = yfPE / expected_PE
+    # performance_ratio = yfPE / expected_PE
 
-    print(f"Actual trailing PE: {yfPE:.2f}")
-    print(f"Expected PE based on financials: {expected_PE:.2f}")
-    print(f"Performance ratio: {performance_ratio:.2f}")
+    # print(f"Actual trailing PE: {yfPE:.2f}")
+    # print(f"Expected PE based on financials: {expected_PE:.2f}")
+    # print(f"Performance ratio: {performance_ratio:.2f}")
 
     data = {    
         "ticker": symbol,
         "currency": info.get("financialCurrency", "--"),
         "industry": info.get("industryKey", "--"),
         "metrics": {
-            "p_e": info.get('trailingPE', "--"),
+            "p_e": trailingPE,
             "own_p_e": trailingPE,
             "current_price": info.get('currentPrice', "--"),
             "revenue_growth": revenue_growth,
@@ -163,12 +156,12 @@ def main():
 
     data = []
     for idx, ticker in enumerate(tickers):
-        if idx >= 1: 
+        if idx >= 20: 
             break
         print(f"{ticker["symbol"]} – {idx}/6400")
-        # collected_data = collect_metrics(ticker["symbol"])
-        print("BETSON")
-        collected_data = collect_metrics("TSLA")
+        collected_data = collect_metrics(ticker["symbol"])
+        # print("BETSON")
+        # collected_data = collect_metrics("TSLA")
         data.append(collected_data)
         # print(ticker["symbol"])
 

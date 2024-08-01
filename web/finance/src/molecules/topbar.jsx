@@ -29,11 +29,11 @@ const Topbar = () => {
                 </ul>
             </div>
             <div className="actions">
-                <div className="signin">
-                    Sign In
-                </div>
                 <div className="login">
-                    Log In
+                    <p>Log In</p>
+                </div>
+                <div className="signin">
+                    <p>GET THE APP</p>
                 </div>
             </div>
         </div>

@@ -1,14 +1,187 @@
 [
     {
-        "ticker": "TSLA",
+        "ticker": "A",
         "currency": "USD",
-        "industry": "auto-manufacturers",
+        "industry": "diagnostics-research",
         "metrics": {
-            "p_e": 62.533707,
-            "own_p_e": 49.421668034402295,
-            "current_price": 222.62,
-            "revenue_growth": 0.4531681342167806,
-            "earnings_growth": 0.7462993251660555
+            "p_e": 33.228334995169085,
+            "own_p_e": 33.228334995169085,
+            "current_price": 141.45,
+            "revenue_growth": 0.08571832152795511,
+            "earnings_growth": 0.1594546713838194
         }
-    }
+    },
+    null,
+    {
+        "ticker": "AACG",
+        "currency": "CNY",
+        "industry": "education-training-services",
+        "metrics": {
+            "p_e": -0.6190506218727853,
+            "own_p_e": -0.6190506218727853,
+            "current_price": 0.656,
+            "revenue_growth": 0.10972233470912252,
+            "earnings_growth": -0.2646514646867443
+        }
+    },
+    {
+        "ticker": "AACI",
+        "currency": "USD",
+        "industry": "shell-companies",
+        "metrics": {
+            "p_e": -36.000865223733456,
+            "own_p_e": -36.000865223733456,
+            "current_price": 8.29,
+            "revenue_growth": 0,
+            "earnings_growth": -0.3806229687671756
+        }
+    },
+    {
+        "ticker": "AACT",
+        "currency": "USD",
+        "industry": "shell-companies",
+        "metrics": {
+            "p_e": 28.82452049946051,
+            "own_p_e": 28.82452049946051,
+            "current_price": 10.74,
+            "revenue_growth": 0,
+            "earnings_growth": 316.02202145680405
+        }
+    },
+    {
+        "ticker": "AADI",
+        "currency": "USD",
+        "industry": "biotechnology",
+        "metrics": {
+            "p_e": -0.5672043701239268,
+            "own_p_e": -0.5672043701239268,
+            "current_price": 1.55,
+            "revenue_growth": 0.20267261461880803,
+            "earnings_growth": 1.9094256773779232
+        }
+    },
+    {
+        "ticker": "AAGR",
+        "currency": "USD",
+        "industry": "farm-products",
+        "metrics": {
+            "p_e": -0.2990919760486737,
+            "own_p_e": -0.2990919760486737,
+            "current_price": 0.1549,
+            "revenue_growth": 0,
+            "earnings_growth": 2.7207506149184546
+        }
+    },
+    null,
+    {
+        "ticker": "AAMC",
+        "currency": "USD",
+        "industry": "mortgage-finance",
+        "metrics": {
+            "p_e": 0.08425977457204854,
+            "own_p_e": 0.08425977457204854,
+            "current_price": 3.13,
+            "revenue_growth": 0,
+            "earnings_growth": -0.28016073859294777
+        }
+    },
+    {
+        "ticker": "AAME",
+        "currency": "USD",
+        "industry": "insurance-life",
+        "metrics": {
+            "p_e": 532.4693559322034,
+            "own_p_e": 532.4693559322034,
+            "current_price": 1.54,
+            "revenue_growth": -0.017682322499179337,
+            "earnings_growth": 0.32938796303026163
+        }
+    },
+    null,
+    {
+        "ticker": "AAOI",
+        "currency": "USD",
+        "industry": "communication-equipment",
+        "metrics": {
+            "p_e": -5.977700691299166,
+            "own_p_e": -5.977700691299166,
+            "current_price": 9.55,
+            "revenue_growth": -0.024725874989178998,
+            "earnings_growth": 0.007417408841683848
+        }
+    },
+    {
+        "ticker": "AAON",
+        "currency": "USD",
+        "industry": "building-products-equipment",
+        "metrics": {
+            "p_e": 40.472619847073545,
+            "own_p_e": 40.472619847073545,
+            "current_price": 88.53,
+            "revenue_growth": 0.3155438212772159,
+            "earnings_growth": 0.3371824446132672
+        }
+    },
+    {
+        "ticker": "AAP",
+        "currency": "USD",
+        "industry": "specialty-retail",
+        "metrics": {
+            "p_e": 232.68896900991928,
+            "own_p_e": 232.68896900991928,
+            "current_price": 63.345,
+            "revenue_growth": 0.037535417108629954,
+            "earnings_growth": -0.4440818301787317
+        }
+    },
+    {
+        "ticker": "AAPL",
+        "currency": "USD",
+        "industry": "consumer-electronics",
+        "metrics": {
+            "p_e": 33.92201173785973,
+            "own_p_e": 33.92201173785973,
+            "current_price": 222.08,
+            "revenue_growth": 0.1176828346030312,
+            "earnings_growth": 0.18922074681618462
+        }
+    },
+    {
+        "ticker": "AAT",
+        "currency": "USD",
+        "industry": "reit-diversified",
+        "metrics": {
+            "p_e": 28.66912290413274,
+            "own_p_e": 28.66912290413274,
+            "current_price": 26.52,
+            "revenue_growth": 0.08585776306424342,
+            "earnings_growth": 0.1358108946833665
+        }
+    },
+    null,
+    {
+        "ticker": "ABAT",
+        "currency": "USD",
+        "industry": "other-industrial-metals-mining",
+        "metrics": {
+            "p_e": -1.8651092313459023,
+            "own_p_e": -1.8651092313459023,
+            "current_price": 1.07,
+            "revenue_growth": 0,
+            "earnings_growth": 0.2791558769460927
+        }
+    },
+    {
+        "ticker": "ABBV",
+        "currency": "USD",
+        "industry": "drug-manufacturers-general",
+        "metrics": {
+            "p_e": 54.60436446253963,
+            "own_p_e": 54.60436446253963,
+            "current_price": 185.316,
+            "revenue_growth": 0.058473821992827135,
+            "earnings_growth": 0.13134409410476922
+        }
+    },
+    null
 ]
