@@ -1,4 +1,4 @@
-$corner-displacement: 2rem;
+$corner-displacement: 2.5rem;
 $navbar-height: 3rem;
 
 .navbar-aligner{
@@ -13,10 +13,11 @@ $navbar-height: 3rem;
 
     .navbar-blur{
         position: absolute;
+        top: -10%;
         width: 100%;
-        height: 100%;
+        height: 110%;
         background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(7px);
         mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     }
 }
@@ -41,7 +42,7 @@ $navbar-height: 3rem;
     .navbar{
         width: 100%;
         // margin: 1rem;
-        max-width: 1280px;
+        max-width: calc(1280px - 5rem);
         display: flex;
         height: 100%;
         // background-color: blue;
