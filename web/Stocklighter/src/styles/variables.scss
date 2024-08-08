@@ -1,0 +1,32 @@
+
+/* Sizes */
+:root{
+    --base-size-112: 7rem;
+    --base-size-96: 6rem;
+    --base-size-80: 5rem;
+    --base-size-64: 4rem;
+    --base-size-48: 3rem;
+    --base-size-40: 2.5rem;
+    --base-size-32: 2rem;
+    --base-size-28: 1.75rem;
+    --base-size-24: 1.5rem;
+    --base-size-16: 1rem;
+    --base-size-12: 0.75rem;
+    --base-size-8: 0.5rem;
+    --base-size-4: 0.25rem;
+
+
+    --borderRadius-full: 624.9375rem;
+    --borderRadius-medium: var(--base-size-8);
+
+    --borderWidth-thin: max(1px, 0.0625rem);
+
+
+    --text-size-200: 1rem;
+    --text-size-900: 4.5rem;
+}
+
+/* Typography */
+:root{
+    --h1-size: 2rem;
+}

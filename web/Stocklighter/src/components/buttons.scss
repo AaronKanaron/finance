@@ -1,0 +1,71 @@
+.buttons{
+    &__CTAButton{
+        height: var(--base-size-48);
+        padding: var(--base-size-16) var(--base-size-28);
+        appearance: none;
+        user-select: none;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        border-radius: var(--borderRadius-medium);
+        cursor: pointer;
+        display: inline-flex;
+        gap: var(--base-size-12);
+        text-align: center;
+
+        border: var(--borderWidth-thin) solid white;
+        &.primary{
+            background-color: white;
+
+            .buttons__CTAButton--label{
+                color: black;
+            }
+
+            .buttons__trailing-visual {
+                color: black;
+            }
+        }
+
+        &--label{
+            color: white;
+            font-weight: 600;
+            font-size: var(--text-size-200);
+            line-height: 1.5;
+            letter-spacing: 0em;   
+        }
+        
+    }
+
+    &__core{
+        &:hover{
+            .buttons__trailing-visual--expandable-arrow{
+                transform: translateX(4px);
+                &--stem{
+                    stroke-dashoffset: 20;
+                }
+                // stroke-dashoffset: 20;
+            }
+        }
+    }
+
+
+    &__trailing-visual {
+        display: flex;
+        color: white;
+
+        &--expandable-arrow{
+            margin-left: calc(var(--base-size-8) * -1);
+            margin-right: calc(var(--base-size-4) * -1);
+            overflow: hidden;
+            transition: transform 200ms;
+            transform: translateX(0);
+
+            &--stem{
+                stroke-dasharray: 10;
+                stroke-dashoffset: 10;
+                transition: stroke-dashoffset 200ms;
+                
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+
+.label {
+    --start-color: hsl(213, 13%, 30%);
+    --end-color: hsl(213, 13%, 20%);
+
+    padding-left: var(--base-size-16);
+    padding-right: var(--base-size-16);
+    height: var(--base-size-32);
+    border-radius: var(--borderRadius-full);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: none;
+
+    &:after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: var(--borderWidth-thin);
+        border-radius: inherit;
+        background: radial-gradient(circle at top left, var(--start-color), var(--end-color));
+        mask: linear-gradient(#24292f, #24292f) content-box, linear-gradient(#24292f, #24292f);
+        mask-composite: exclude;
+    }
+
+    &--content {
+        line-height: 1.5;
+        font-weight: 600;
+        font-size: var(--text-size-200);
+        letter-spacing: 0em;
+        text-align: center;
+        color: white;
+    }
+
+    
+}
