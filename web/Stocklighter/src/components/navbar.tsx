@@ -7,6 +7,7 @@ const Navbar: React.FC = () => {
     useEffect(() => {
         const handleScroll = () => {
             const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            console.log(scrollTop);
             setIsTop(scrollTop === 0);
         };
 
@@ -21,7 +22,7 @@ const Navbar: React.FC = () => {
             };
         };
 
-        const throttledHandleScroll = throttle(handleScroll, 200);
+        const throttledHandleScroll = throttle(handleScroll, 0);
 
         window.addEventListener('scroll', throttledHandleScroll);
 
@@ -39,7 +40,7 @@ const Navbar: React.FC = () => {
                         {/* <div className="logo-placeholder">
                             <img alt=""/>
                         </div> */}
-                        {/* <p>Stocklighter</p> */}
+                        <p>Stocklighter</p>
                     </div>
                     <div className="links">
                         <ul className="link-container">

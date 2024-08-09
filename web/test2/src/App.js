@@ -9,7 +9,9 @@ function App() {
 
       <section className="hero">
       {/* <div className='bigblur'></div> */}
-
+        <div className='hero-cover'>
+          
+        </div>
         <div className='section-container'>
           <div className='box-container'>
             {/* <h1>Trading made easy</h1> */}
