@@ -6,12 +6,18 @@ interface ButtonProps extends PropsWithChildren<any> {
     label: string,
     primary?: boolean,
     arrow?: boolean,
+    block?: boolean, //fill entire space
 }
 
 
 const CTAButton: FC<ButtonProps> = (props): JSX.Element => {
+
+    let classes = "buttons__core buttons__CTAButton"
+    if (props.primary) { classes += " primary" }
+    if (props.block) { classes += " block" }
+
     return (
-        <a className={props.primary ? "buttons__core buttons__CTAButton primary" : "buttons__core buttons__CTAButton"} href={props.link}>
+        <a className={classes} href={props.link}>
             <span className='buttons__CTAButton--label'>
                 {props.label}
             </span>

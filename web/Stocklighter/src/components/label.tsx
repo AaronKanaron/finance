@@ -10,20 +10,20 @@ interface LabelProps extends PropsWithChildren<any> {
 }
 
 
-const Label: FC<LabelProps> = (props): JSX.Element => {
+const Label: FC<LabelProps> = ({label, color1, color2, color, ...attributes}): JSX.Element => {
     let styleColor = {}
-    if (props.color1) {
-        styleColor = {"--start-color": props.color1, "--end-color": props.color2}
-    } else if (props.color) {
-        styleColor = {"--start-color": props.color, "--end-color": props.color}
+    if (color1) {
+        styleColor = {"--start-color": color1, "--end-color": color2}
+    } else if (color) {
+        styleColor = {"--start-color": color, "--end-color": color}
     } else {
         styleColor = {}
     }
 
     return (
-        <span className="label" style={styleColor as React.CSSProperties}>
+        <span className="label" style={styleColor as React.CSSProperties} {...attributes}>
             <span className="label--content">
-                {props.label}
+                {label}
             </span>
         </span>
     );

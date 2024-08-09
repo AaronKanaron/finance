@@ -13,21 +13,27 @@
         gap: var(--base-size-12);
         text-align: center;
 
-        border: var(--borderWidth-thin) solid white;
+        border: var(--borderWidth-thin) solid var(--color-border-default);
         &.primary{
-            background-color: white;
+            background-color: var(--color-text-default);
+            border: var(--borderWidth-thin) solid var(--color-text-default);
+
 
             .buttons__CTAButton--label{
-                color: black;
+                color: var(--color-canvas-default);
             }
 
             .buttons__trailing-visual {
-                color: black;
+                color: var(--color-canvas-default);
             }
         }
 
+        &.block{
+            width: 100%;
+        }
+
         &--label{
-            color: white;
+            color: var(--color-text-default);
             font-weight: 600;
             font-size: var(--text-size-200);
             line-height: 1.5;

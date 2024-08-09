@@ -2,7 +2,8 @@
   display: block;
   padding-top: var(--base-size-96);
   padding-bottom: var(--base-size-96);
-  background-color: #0d1117;
+  background-color: var(--color-canvas-default);
+  color: var(--color-text-default);
 
   &--container{
     padding-left: var(--base-size-16);
@@ -36,13 +37,13 @@
       font-size: 1rem;
       line-height: 1.5;
       letter-spacing: 0em;
-      color: #8b949e;
+      color: var(--color-text-muted);
       text-align: center;
     }
   }
 
   &--level-1 {
-    background-color: #161b22;
+    background-color: var(--color-canvas-subtle);
   }
 
   &--hero {
@@ -62,6 +63,7 @@
 
       .label{
         margin-bottom: var(--base-size-24, 24px);
+        &--content{ color: var(--white-0) };
       }
 
       h1.heading-title{
@@ -70,6 +72,8 @@
         font-size: var(--text-size-900);
         line-height: 1;
         letter-spacing: -0.03em;
+        color: var(--white-0)
+
       }
 
       .hero-cta {
@@ -77,7 +81,12 @@
         margin-top: var(--base-size-32);
         align-items: center;
         flex-wrap: wrap;
-        gap: var(--base-size-16)
+        gap: var(--base-size-16);
+        a {
+          background-color: var(--color-canvas-default);
+          border-color: var(--color-canvas-default);
+          span { color: var(--color-text-default); }
+        }
       }
     }
 
