@@ -1,8 +1,37 @@
+import React, { useState, useEffect } from 'react'
 import "./navbar.scss"
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
+    const [isTop, setIsTop] = useState<boolean>(true);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            setIsTop(scrollTop === 0);
+        };
+
+        const throttle = (callback: () => void, limit: number) => {
+            let inThrottle: boolean;
+            return () => {
+                if (!inThrottle) {
+                    callback();
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            };
+        };
+
+        const throttledHandleScroll = throttle(handleScroll, 200);
+
+        window.addEventListener('scroll', throttledHandleScroll);
+
+        handleScroll();
+
+        return () => window.removeEventListener('scroll', throttledHandleScroll);
+    }, []);
+    
     return (
-        <div className="navbar-aligner">
+        <div className={`navbar-aligner ${isTop ? 'top' : ''}`}>
             <div className="navbar-blur nottop"></div>
             <div className="navbar-container">
                 <div className="navbar">

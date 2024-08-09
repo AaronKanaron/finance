@@ -11,6 +11,10 @@ $navbar-height: 3rem;
     }
     // background: red;
 
+    &.top{
+        background: white;
+    }
+
     .navbar-blur{
         position: absolute;
         top: -10%;

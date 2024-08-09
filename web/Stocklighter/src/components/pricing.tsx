@@ -56,7 +56,7 @@ class Pricing extends React.PureComponent<{}, State> {
                     <Label label="Cheapest" id={"n1"}/>
                     <h3>Stocklite</h3>
                     <p className="description">Our most basic model, satisfies users with small, simple portfolios.</p>
-                    <this.Price value={0} currency="(Free)" currencychar="$" originalValue={5} trailing="first 14 days / then 8 per month"/>
+                    <this.Price value={5} currency="USD" currencychar="$" originalValue={10} trailing="per month / 60 per month"/>
                     <div className="actions">
                         <CTAButton link="/" label="Buy now" primary={true} arrow={true} block={true}/>
                         {/* <CTAButton link="/" label="Contact sales" primary={false} arrow={true} block={true}/> */}
